@@ -18,7 +18,7 @@ class HierarchyNotesApplicationTests extends IntegrationCrudControllerTest<FileC
 //        String json = getMvc().perform(create(createSpecialtyDto))
 //                .andExpect(status().isOk())
 //                .andReturn().getResponse().getContentAsString();
-        CreateFileDto createFileDto = new CreateFileDto("name", "text", "dir", false);
+        CreateFileDto createFileDto = new CreateFileDto("name", "text", "my_dir", false);
         ReadFileDto fullVetDto = performDs2xx(create(createFileDto), ReadFileDto.class);
     }
 
