@@ -7,5 +7,5 @@ public class UpdateFileDto {
     private String name;
     private String text;
     private String directory;
-    private boolean isDir;
+    private Boolean isDir;
 }

@@ -16,3 +16,11 @@ String jsonRequest = TransactionalRapidTestUtil.createUpdateJsonRequest(
                 TransactionalRapidTestUtil.createUpdateJsonLine("replace", "/ownerId",savedMeier.getId().toString())
         );
 So wird dann auch bidirectional many to many geregelt und so
+
+
+AUTH
+signup: id, email, pw über standard signup dto
+
+signin: api/core/login
+
+/api/core/user/signup

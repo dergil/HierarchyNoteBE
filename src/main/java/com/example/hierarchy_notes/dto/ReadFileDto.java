@@ -7,5 +7,5 @@ public class ReadFileDto {
     private String name;
     private String text;
     private String directory;
-    private boolean isDir;
+    private Boolean isDir;
 }

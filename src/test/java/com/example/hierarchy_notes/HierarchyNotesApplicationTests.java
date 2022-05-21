@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 
 @SpringBootTest
 class HierarchyNotesApplicationTests extends IntegrationCrudControllerTest<FileController, FileService> {
@@ -58,5 +60,21 @@ class HierarchyNotesApplicationTests extends IntegrationCrudControllerTest<FileC
                 .properties()
                 .all()
                 .assertEqual();
+
+        File dbFile = fileRepository.findById(name).get();
+        Comparator.compare(file).with(dbFile)
+                .properties()
+                .all()
+                .assertEqual();
+    }
+
+    @Test
+    void deleteFile() throws Exception {
+        String name = "name";
+        File file = new File(name, "text", "my_dir", Boolean.FALSE);
+        fileRepository.save(file);
+        perform2xx(delete(name));
+        Optional<File> dbFile = fileRepository.findById(name);
+        Assertions.assertTrue(dbFile.isEmpty());
     }
 }

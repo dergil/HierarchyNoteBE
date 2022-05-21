@@ -49,6 +49,25 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.vincemann.spring-rapid</groupId>
+            <artifactId>auth</artifactId>
+            <version>${spring-rapid.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.vincemann.spring-rapid</groupId>
+            <artifactId>lemon-exceptions</artifactId>
+            <version>${spring-rapid.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.vincemann.spring-rapid</groupId>
+            <artifactId>auth-tests</artifactId>
+            <version>${spring-rapid.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -62,6 +81,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <dependenciesToScan>
+                        <dependency>com.github.vincemann.spring-rapid:auth-tests</dependency>
+                    </dependenciesToScan>
+                </configuration>
             </plugin>
         </plugins>
     </build>

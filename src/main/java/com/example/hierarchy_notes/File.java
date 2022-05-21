@@ -1,7 +1,6 @@
 package com.example.hierarchy_notes;
 
 import com.github.vincemann.springrapid.core.model.IdentifiableEntity;
-import com.github.vincemann.springrapid.core.model.IdentifiableEntityImpl;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,7 +36,7 @@ public class File implements IdentifiableEntity<String> {
     private String directory;
 
     @Column(name = "isDir")
-    private boolean isDir;
+    private Boolean isDir;
 
     @Override
     public String getId() {
