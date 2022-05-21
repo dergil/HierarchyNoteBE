@@ -24,3 +24,9 @@ signup: id, email, pw über standard signup dto
 signin: api/core/login
 
 /api/core/user/signup
+
+
+pw reset: http
+
+acl proxy estellt permissions
+secured proxy prüft permissions

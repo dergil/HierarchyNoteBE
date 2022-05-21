@@ -8,3 +8,12 @@ Content-Type: application/json
   "directory": "root",
   "isDir": false
 }
+
+### Send POST request with json body
+POST http://localhost:8080/api/core/user/signup
+Content-Type: application/json
+
+{
+  "email": "gil@hro.com",
+  "password": "Password123"
+}
