@@ -1,5 +1,6 @@
 package com.example.hierarchy_notes;
 
+import com.github.vincemann.springrapid.core.model.IdentifiableEntity;
 import com.github.vincemann.springrapid.core.model.IdentifiableEntityImpl;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity
 @Table(name = "files")
-public class File extends IdentifiableEntityImpl<Long> {
+public class File implements IdentifiableEntity<String> {
 
     @Builder
     public File (String name, String text, String directory, boolean isDir) {
@@ -25,6 +26,7 @@ public class File extends IdentifiableEntityImpl<Long> {
         this.isDir = isDir;
     }
 
+    @javax.persistence.Id
     @Column(name = "names")
     private String name;
 
@@ -36,4 +38,14 @@ public class File extends IdentifiableEntityImpl<Long> {
 
     @Column(name = "isDir")
     private boolean isDir;
+
+    @Override
+    public String getId() {
+        return name;
+    }
+
+    @Override
+    public void setId(String s) {
+        this.name = s;
+    }
 }
