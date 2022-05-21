@@ -1,0 +1,10 @@
+### Send POST request with json body
+POST http://localhost:8080/api/core/file/create
+Content-Type: application/json
+
+{
+  "name": "gil",
+  "text": "text",
+  "directory": "root",
+  "isDir": false
+}

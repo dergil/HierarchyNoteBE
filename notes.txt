@@ -1,0 +1,18 @@
+geschachtelte objects werden reqquest für request aufgebaut
+
+api/core/$ENTITIY/$METHOD
+get und delete etc. immer mit id als url parameter
+sonst immer json
+
+bei update von Liste kann man einfach id angeben, es braucht keinen index
+
+wenn man z.B. bei owner 42 die addresse ändern will:
+update an /owner?id=43 mit json:
+[
+   {"op": "replace", "path": "/address", "value": "other Street 12"}
+ ]
+So wird so ein json request aufgebaut:
+String jsonRequest = TransactionalRapidTestUtil.createUpdateJsonRequest(
+                TransactionalRapidTestUtil.createUpdateJsonLine("replace", "/ownerId",savedMeier.getId().toString())
+        );
+So wird dann auch bidirectional many to many geregelt und so
