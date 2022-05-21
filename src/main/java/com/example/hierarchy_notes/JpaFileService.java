@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class JpaFileService
-        extends JPACrudService<File,Long,FileRepository>
+        extends JPACrudService<File,String,FileRepository>
         implements FileService {
     @Override
     public Class<?> getTargetClass() {

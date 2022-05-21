@@ -9,7 +9,7 @@ import com.github.vincemann.springrapid.core.controller.dto.mapper.context.DtoMa
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class FileController extends CrudController<File, Long, FileService> {
+public class FileController extends CrudController<File, String, FileService> {
 
     @Override
     protected DtoMappingContext provideDtoMappingContext(CrudDtoMappingContextBuilder builder) {

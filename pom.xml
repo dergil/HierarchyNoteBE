@@ -16,6 +16,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-rapid.version>1.0.0-SNAPSHOT.12</spring-rapid.version>
+<!--        <ez-compare.version>1.0.0-SNAPSHOT.2</ez-compare.version>-->
     </properties>
     <repositories>
         <repository>

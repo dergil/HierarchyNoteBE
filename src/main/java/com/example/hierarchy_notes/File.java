@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class File implements IdentifiableEntity<String> {
 
     @Builder
-    public File (String name, String text, String directory, boolean isDir) {
+    public File (String name, String text, String directory, Boolean isDir) {
         this.name = name;
         this.text = text;
         this.directory = directory;
