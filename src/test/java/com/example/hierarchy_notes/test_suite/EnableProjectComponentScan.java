@@ -1,4 +1,4 @@
-package com.example.hierarchy_notes;
+package com.example.hierarchy_notes.test_suite;
 
 import org.springframework.context.annotation.ComponentScan;
 

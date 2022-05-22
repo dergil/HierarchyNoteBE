@@ -1,4 +1,4 @@
-package com.example.hierarchy_notes;
+package com.example.hierarchy_notes.test_suite;
 
 import com.example.hierarchy_notes.auth.User;
 import com.github.vincemann.springrapid.auth.dto.SignupDto;
