@@ -21,6 +21,7 @@ import java.util.Optional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @SpringBootTest
 public class FileControllerIntegrationTest extends IntegrationCrudControllerTest<FileController, FileService> {
 
@@ -51,7 +52,7 @@ public class FileControllerIntegrationTest extends IntegrationCrudControllerTest
         String token2 = createUser2();
 
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
-        performDs2xx(create(createFileDto).header(HttpHeaders.AUTHORIZATION, token1),ReadFileDto.class);
+        perform2xx(create(createFileDto).header(HttpHeaders.AUTHORIZATION, token1));
         perform(find(createFileDto.getName()).header(HttpHeaders.AUTHORIZATION, token2))
                 .andExpect(status().isUnauthorized());
 

@@ -1,5 +1,6 @@
 package com.example.hierarchy_notes;
 
+import com.example.hierarchy_notes.auth.User;
 import com.github.vincemann.springrapid.core.model.IdentifiableEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Setter
@@ -37,6 +39,10 @@ public class File implements IdentifiableEntity<String> {
 
     @Column(name = "isDir")
     private Boolean isDir;
+
+//    @Column(name = "user")
+//    @OneToMany
+//    private User user;
 
     @Override
     public String getId() {

@@ -5,7 +5,9 @@ import com.example.hierarchy_notes.auth.User;
 import com.github.vincemann.springrapid.coretest.TestMethodInitializable;
 import com.github.vincemann.springrapid.coretest.bootstrap.BeforeEachTestMethodInitializable;
 import lombok.Getter;
+import org.springframework.boot.test.context.TestComponent;
 
+@TestComponent
 @Getter
 public class TestData implements TestMethodInitializable {
 
@@ -17,11 +19,13 @@ public class TestData implements TestMethodInitializable {
     @Override
     public void before() {
         this.testUser1 = User.builder()
-                .email("")
+                .email("gilgil@gil.com")
+                .password("Password123")
                 .build();
 
         this.testUser2 = User.builder()
                 .email("gil@hro.de")
+                .password("Password124")
                 .build();
 
         this.file1 = File.builder()
