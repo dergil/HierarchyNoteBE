@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class CreateFileDto extends CustomIdentifiableEntityImpl<Long> {
     private String name;
@@ -16,6 +15,7 @@ public class CreateFileDto extends CustomIdentifiableEntityImpl<Long> {
     private Boolean isDir;
 
     public CreateFileDto(File file) {
+        this.setId(file.getId());
         this.name = file.getName();
         this.text = file.getText();
         this.directory = file.getDirectory();

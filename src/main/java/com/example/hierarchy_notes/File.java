@@ -22,15 +22,13 @@ import javax.persistence.Table;
 public class File extends CustomIdentifiableEntityImpl<Long> {
 
     @Builder
-    public File (String name, String text, String directory, Boolean isDir) {
+    public File (Long id, String name, String text, String directory, Boolean isDir) {
+        this.setId(id);
         this.name = name;
         this.text = text;
         this.directory = directory;
         this.isDir = isDir;
     }
-
-    @javax.persistence.Id
-    private Long id;
 
 //    @javax.persistence.Id
     @Unique
