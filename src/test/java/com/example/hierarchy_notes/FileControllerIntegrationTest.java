@@ -43,6 +43,14 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
 //        perform2xx(delete(createFileDto.getId()).header(HttpHeaders.AUTHORIZATION, token));
 //    }
 
+
+    @Test
+    void fileCanBeCreatedWithoutAuthentication() throws Exception {
+        CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
+        perform(create(createFileDto))
+                .andExpect(status().isOk() );
+    }
+
     @Test
     void userCantReadForeignFile() throws Exception {
         String token1 = createUser1();
