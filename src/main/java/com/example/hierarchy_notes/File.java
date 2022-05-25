@@ -44,10 +44,6 @@ public class File extends CustomIdentifiableEntityImpl<Long> {
     @Column(name = "isDir")
     private Boolean isDir;
 
-//    @Column(name = "user")
-//    @OneToMany
-//    private User user;
-
 //    @Override
 //    public Long getId() {
 //        return id;

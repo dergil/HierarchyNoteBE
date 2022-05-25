@@ -38,3 +38,5 @@ DB synchro:
 wenn ich in android kein netz habe, speicher ich lokal ab, und setze synchro boolean
 Dann bei Netz suche ich nach den booleans und speichere sie mit der lokalen ID im BE ab
 android darf keine IDs wiederverwenden
+
+über findByEmail endpoint kann man infos über eigenen user holen (jetzt auch files)

@@ -6,10 +6,16 @@ import com.example.hierarchy_notes.dto.UpdateFileDto;
 import com.github.vincemann.springrapid.acl.SecuredCrudController;
 import com.github.vincemann.springrapid.core.controller.dto.mapper.context.CrudDtoMappingContextBuilder;
 import com.github.vincemann.springrapid.core.controller.dto.mapper.context.DtoMappingContext;
+import com.github.vincemann.springrapid.core.security.RapidSecurityContext;
+import com.github.vincemann.springrapid.core.service.exception.BadEntityException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class FileController extends SecuredCrudController<File, Long, FileService> {
+
+    @Autowired
+    private FileService fileService;
 
     @Override
     protected DtoMappingContext provideDtoMappingContext(CrudDtoMappingContextBuilder builder) {
@@ -23,6 +29,16 @@ public class FileController extends SecuredCrudController<File, Long, FileServic
                 .withAllPrincipals()
                 .forResponse(ReadFileDto.class)
                 .build();
+    }
+
+    @Override
+    protected File serviceCreate(File entity) throws BadEntityException {
+        if (RapidSecurityContext.isAuthenticated()){
+            return getService().save(entity);
+        }else {
+            // anon can create files
+            return fileService.save(entity);
+        }
     }
 
 }

@@ -1,19 +1,20 @@
 package com.example.hierarchy_notes.auth;
 
+import com.example.hierarchy_notes.File;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.github.vincemann.springrapid.auth.model.AbstractUser;
 import com.github.vincemann.springrapid.auth.util.UserVerifyUtils;
+import com.github.vincemann.springrapid.autobidir.model.child.annotation.UniDirChildCollection;
 import com.google.common.collect.Sets;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -34,6 +35,11 @@ public class User extends AbstractUser<Long> {
 		this.password = password;
 		this.roles= Sets.newHashSet(roles);
 	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@UniDirChildCollection(File.class)
+	@Column(name = "files")
+	private Set<File> files = new HashSet<>();
 
 	@Builder
 	public User(String email, String password, Set<String> roles, String newEmail, long credentialsUpdatedMillis, String captchaResponse) {
