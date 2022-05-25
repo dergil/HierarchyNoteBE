@@ -5,5 +5,5 @@ import com.github.vincemann.springrapid.core.slicing.ServiceComponent;
 
 
 @ServiceComponent
-public interface FileService extends CrudService<File,String> {
+public interface FileService extends CrudService<File,Long> {
 }

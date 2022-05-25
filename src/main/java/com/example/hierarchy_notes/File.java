@@ -2,10 +2,12 @@ package com.example.hierarchy_notes;
 
 import com.example.hierarchy_notes.auth.User;
 import com.github.vincemann.springrapid.core.model.IdentifiableEntity;
+import com.github.vincemann.springrapid.core.model.IdentifiableEntityImpl;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +19,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity
 @Table(name = "files")
-public class File implements IdentifiableEntity<String> {
+public class File extends CustomIdentifiableEntityImpl<Long> {
 
     @Builder
     public File (String name, String text, String directory, Boolean isDir) {
@@ -28,6 +30,10 @@ public class File implements IdentifiableEntity<String> {
     }
 
     @javax.persistence.Id
+    private Long id;
+
+//    @javax.persistence.Id
+    @Unique
     @Column(name = "names")
     private String name;
 
@@ -44,13 +50,13 @@ public class File implements IdentifiableEntity<String> {
 //    @OneToMany
 //    private User user;
 
-    @Override
-    public String getId() {
-        return name;
-    }
-
-    @Override
-    public void setId(String s) {
-        this.name = s;
-    }
+//    @Override
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    @Override
+//    public void setId(Long l) {
+//        this.id = l;
+//    }
 }

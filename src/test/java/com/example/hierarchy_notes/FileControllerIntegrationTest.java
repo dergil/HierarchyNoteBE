@@ -2,7 +2,6 @@ package com.example.hierarchy_notes;
 
 import com.example.hierarchy_notes.dto.CreateFileDto;
 import com.example.hierarchy_notes.dto.ReadFileDto;
-import com.example.hierarchy_notes.test_suite.TestData;
 import com.github.vincemann.ezcompare.Comparator;
 import com.github.vincemann.springrapid.auth.dto.SignupDto;
 import com.github.vincemann.springrapid.auth.dto.user.RapidFindOwnUserDto;
@@ -16,14 +15,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 import java.util.Optional;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @SpringBootTest
-public class FileControllerIntegrationTest extends IntegrationCrudControllerTest<FileController, FileService> {
+public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<FileController, String, FileService> {
 
     @Autowired
     TestData testData;
@@ -58,23 +60,7 @@ public class FileControllerIntegrationTest extends IntegrationCrudControllerTest
 
     }
 
-    private String createUser1() throws Exception {
-        SignupDto signupDto = SignupDto.builder()
-                .email(testData.getTestUser1().getEmail())
-                .password(testData.getTestUser1().getPassword())
-                .build();
-        RapidFindOwnUserDto userDto = performDs2xx(userControllerTestTemplate.signup(signupDto), RapidFindOwnUserDto.class);
-        return userControllerTestTemplate.login2xx(signupDto.getEmail(), signupDto.getPassword());
-    }
 
-    private String createUser2() throws Exception {
-        SignupDto signupDto = SignupDto.builder()
-                .email(testData.getTestUser1().getEmail())
-                .password(testData.getTestUser1().getPassword())
-                .build();
-        RapidFindOwnUserDto userDto = performDs2xx(userControllerTestTemplate.signup(signupDto), RapidFindOwnUserDto.class);
-        return userControllerTestTemplate.login2xx(signupDto.getEmail(), signupDto.getPassword());
-    }
 
     @Test
     void createFile() throws Exception {
@@ -134,6 +120,37 @@ public class FileControllerIntegrationTest extends IntegrationCrudControllerTest
     void tearDown() {
         TransactionalRapidTestUtil.clear(getService());
         TransactionalRapidTestUtil.clear(userService);
+    }
+
+    private String createUser1() throws Exception {
+        SignupDto signupDto = SignupDto.builder()
+                .email(testData.getTestUser1().getEmail())
+                .password(testData.getTestUser1().getPassword())
+                .build();
+        RapidFindOwnUserDto userDto = performDs2xx(userControllerTestTemplate.signup(signupDto), RapidFindOwnUserDto.class);
+
+        MockHttpServletRequestBuilder builder = post("/api/core/login")
+                .param("username", testData.getTestUser1().getEmail())
+                .param("password", testData.getTestUser1().getPassword())
+                .header("contentType", MediaType.APPLICATION_FORM_URLENCODED);
+
+        return getMvc().perform(builder)
+                .andExpect(status().is2xxSuccessful())
+                .andReturn().getResponse().getHeader(HttpHeaders.AUTHORIZATION);
+
+
+
+
+//        return userControllerTestTemplate.login2xx(signupDto.getEmail(), signupDto.getPassword());
+    }
+
+    private String createUser2() throws Exception {
+        SignupDto signupDto = SignupDto.builder()
+                .email(testData.getTestUser2().getEmail())
+                .password(testData.getTestUser2().getPassword())
+                .build();
+        RapidFindOwnUserDto userDto = performDs2xx(userControllerTestTemplate.signup(signupDto), RapidFindOwnUserDto.class);
+        return userControllerTestTemplate.login2xx(signupDto.getEmail(), signupDto.getPassword());
     }
 }
 

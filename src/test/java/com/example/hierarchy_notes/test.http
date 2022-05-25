@@ -17,3 +17,9 @@ Content-Type: application/json
   "email": "gil@hro.com",
   "password": "Password123"
 }
+
+### Send POST request with body as parameters
+POST http://localhost:8080/api/core/login
+Content-Type: application/x-www-form-urlencoded
+
+username=gil@hro.com&password=Password123

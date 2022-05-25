@@ -30,3 +30,11 @@ pw reset: http
 
 acl proxy estellt permissions
 secured proxy prüft permissions
+
+
+IDs müssen im long format sein, name kann nicht als id genommen werden
+
+DB synchro:
+wenn ich in android kein netz habe, speicher ich lokal ab, und setze synchro boolean
+Dann bei Netz suche ich nach den booleans und speichere sie mit der lokalen ID im BE ab
+android darf keine IDs wiederverwenden

@@ -1,16 +1,11 @@
-package com.example.hierarchy_notes.test_suite;
+package com.example.hierarchy_notes;
 
-import com.example.hierarchy_notes.File;
 import com.example.hierarchy_notes.auth.User;
 import com.github.vincemann.springrapid.coretest.TestMethodInitializable;
-import com.github.vincemann.springrapid.coretest.bootstrap.BeforeEachTestMethodInitializable;
 import lombok.Getter;
-import org.springframework.boot.test.context.TestComponent;
 
-@TestComponent
 @Getter
 public class TestData implements TestMethodInitializable {
-
 
     User testUser1;
     User testUser2;
@@ -29,6 +24,7 @@ public class TestData implements TestMethodInitializable {
                 .build();
 
         this.file1 = File.builder()
+                .
                 .directory("gilsDir")
                 .name("gilsFile")
                 .isDir(Boolean.TRUE)

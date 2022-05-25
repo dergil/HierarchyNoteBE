@@ -1,5 +1,6 @@
 package com.example.hierarchy_notes.dto;
 
+import com.example.hierarchy_notes.CustomIdentifiableEntityImpl;
 import com.example.hierarchy_notes.File;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateFileDto {
+public class CreateFileDto extends CustomIdentifiableEntityImpl<Long> {
     private String name;
     private String text;
     private String directory;

@@ -24,7 +24,7 @@ import com.github.vincemann.springrapid.acl.proxy.*;
 @Slf4j
 @Service
 public class JpaFileService
-        extends JPACrudService<File,String,FileRepository>
+        extends JPACrudService<File,Long,FileRepository>
         implements FileService {
     @Override
     public Class<?> getTargetClass() {
