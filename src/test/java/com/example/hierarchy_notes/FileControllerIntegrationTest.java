@@ -2,6 +2,7 @@ package com.example.hierarchy_notes;
 
 import com.example.hierarchy_notes.dto.CreateFileDto;
 import com.example.hierarchy_notes.dto.ReadFileDto;
+import com.example.hierarchy_notes.dto.UpdateFileDto;
 import com.github.vincemann.ezcompare.Comparator;
 import com.github.vincemann.springrapid.auth.dto.SignupDto;
 import com.github.vincemann.springrapid.auth.service.UserService;
@@ -49,6 +50,17 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
         perform(create(createFileDto))
                 .andExpect(status().isOk() );
+    }
+
+    @Test
+    void fileCanBeCUpdatedWithoutAuthentication() throws Exception {
+        CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
+        perform(create(createFileDto))
+                .andExpect(status().isOk() );
+        String jsonRequest = TransactionalRapidTestUtil.createUpdateJsonRequest(
+                TransactionalRapidTestUtil.createUpdateJsonLine("replace", "/text", "hro")
+        );
+        perform2xx(update(jsonRequest, testData.getFile1().getId()));
     }
 
     @Test

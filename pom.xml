@@ -74,6 +74,12 @@
             <version>${spring-rapid.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.vincemann.spring-rapid</groupId>
+            <artifactId>acl</artifactId>
+            <version>${spring-rapid.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
             <groupId>com.h2database</groupId>

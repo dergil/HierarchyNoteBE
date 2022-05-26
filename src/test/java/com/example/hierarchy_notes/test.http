@@ -1,14 +1,17 @@
 ### Send POST request with json body
-POST http://localhost:8080/api/core/file/create
+PUT http://localhost:8080/api/core/file/update?id=42
 Content-Type: application/json
 
 {
-  "id": 42,
-  "name": "gil",
+  "name": "gil2",
   "text": "text",
   "directory": "root",
   "isDir": false
 }
+
+### Send POST request with json body
+GET http://localhost:8080/api/core/file/find?id=42
+
 
 ### Send POST request with json body
 POST http://localhost:8080/api/core/user/signup
