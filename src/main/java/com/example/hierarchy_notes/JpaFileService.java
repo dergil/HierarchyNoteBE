@@ -18,7 +18,8 @@ import com.github.vincemann.springrapid.acl.proxy.*;
 @DefineProxy(name = "acl", extensions = {
         "authenticatedHasFullPermissionAboutSavedAclExtension"
 })
-@DefineProxy(name = "secured", defaultExtensionsEnabled = true )
+//set to true for disabling anon features
+@DefineProxy(name = "secured", defaultExtensionsEnabled = false )
 @CreateProxy(qualifiers = Secured.class, proxies = {"acl","secured"})
 @CreateProxy(qualifiers = Acl.class, proxies = "acl")
 @Slf4j

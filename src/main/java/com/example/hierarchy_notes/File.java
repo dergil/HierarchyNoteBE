@@ -1,8 +1,5 @@
 package com.example.hierarchy_notes;
 
-import com.example.hierarchy_notes.auth.User;
-import com.github.vincemann.springrapid.core.model.IdentifiableEntity;
-import com.github.vincemann.springrapid.core.model.IdentifiableEntityImpl;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +8,6 @@ import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Setter
@@ -22,11 +18,11 @@ import javax.persistence.Table;
 public class File extends CustomIdentifiableEntityImpl<Long> {
 
     @Builder
-    public File (Long id, String name, String text, String directory, Boolean isDir) {
+    public File (Long id, String name, String text, String directory_name, Boolean isDir) {
         this.setId(id);
         this.name = name;
         this.text = text;
-        this.directory = directory;
+        this.directory_name = directory_name;
         this.isDir = isDir;
     }
 
@@ -39,7 +35,7 @@ public class File extends CustomIdentifiableEntityImpl<Long> {
     private String text;
 
     @Column(name = "directories")
-    private String directory;
+    private String directory_name;
 
     @Column(name = "isDir")
     private Boolean isDir;

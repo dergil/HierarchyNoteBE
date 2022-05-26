@@ -25,7 +25,7 @@ public class TestData implements TestMethodInitializable {
 
         this.file1 = File.builder()
                 .id(42L)
-                .directory("gilsDir")
+                .directory_name("gilsDir")
                 .name("gilsFile")
                 .isDir(Boolean.TRUE)
                 .text("hello gil")
