@@ -3,18 +3,17 @@ POST http://localhost:8080/api/core/file/create
 Content-Type: application/json
 
 {
-  "id": 52,
   "name": "gil2",
   "text": "text",
-  "directory_name": "root",
+  "directory_name": "MYDIR",
   "isDir": false
 }
 
 ### Send POST request with json body
-PUT http://localhost:8080/api/core/file/update?id=52
+PUT http://localhost:8080/api/core/file/update?id=3
 Content-Type: application/json
 
-{"op": "replace", "path": "/text", "value": "hro"}
+[{"op": "replace", "path": "/text", "value": "hro"}]
 
 ### Send POST request with json body
 GET http://localhost:8080/api/core/file/find-all

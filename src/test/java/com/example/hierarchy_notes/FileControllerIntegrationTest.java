@@ -54,21 +54,22 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
     @Test
     void fileCanBeCUpdatedWithoutAuthentication() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
-        perform2xx(create(createFileDto));
+        ReadFileDto response = performDs2xx(create(createFileDto), ReadFileDto.class);
         String jsonRequest = TransactionalRapidTestUtil.createUpdateJsonRequest(
                 TransactionalRapidTestUtil.createUpdateJsonLine("replace", "/text", "hro")
         );
-        perform2xx(update(jsonRequest, testData.getFile1().getId()));
+        perform2xx(update(jsonRequest, response.getId()));
     }
 
     @Test
     void filesCanBeReadWithoutAuth() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
-        perform2xx(create(createFileDto));
-        ReadFileDto readFileDto = performDs2xx(find(createFileDto.getId()), ReadFileDto.class);
+        ReadFileDto response = performDs2xx(create(createFileDto), ReadFileDto.class);
+        ReadFileDto readFileDto = performDs2xx(find(response.getId()), ReadFileDto.class);
         Comparator.compare(createFileDto).with(readFileDto)
             .properties()
             .all()
+            .ignore(readFileDto::getId)
             .assertEqual();
     }
 
