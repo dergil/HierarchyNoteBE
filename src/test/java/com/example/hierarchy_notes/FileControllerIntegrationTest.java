@@ -54,8 +54,8 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
     @Test
     void fileCanBeDeletedWithoutAuthentication() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
-        perform2xx(create(createFileDto));
-        perform2xx(delete(createFileDto.getId()));
+        ReadFileDto response = performDs2xx(create(createFileDto), ReadFileDto.class);
+        perform2xx(delete(response.getId()));
     }
 
     @Test
