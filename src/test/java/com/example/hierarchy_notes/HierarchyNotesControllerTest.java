@@ -1,9 +1,8 @@
 package com.example.hierarchy_notes;
 
-import com.github.vincemann.acltest.controller.AclIntegrationCrudControllerTest;
 import com.github.vincemann.springrapid.core.controller.GenericCrudController;
 import com.github.vincemann.springrapid.core.service.CrudService;
-import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
+import com.github.vincemann.springrapid.coretest.controller.integration.IntegrationCrudControllerTest;
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 
 import java.io.Serializable;
@@ -13,12 +12,6 @@ public abstract class HierarchyNotesControllerTest <
         Id extends Serializable,
         S extends CrudService<?, Id>
         >
-        extends AclIntegrationCrudControllerTest<C, S> {
+        extends IntegrationCrudControllerTest<C, S> {
 
-    @Override
-    protected DefaultMockMvcBuilder createMvcBuilder() {
-        DefaultMockMvcBuilder mvcBuilder = super.createMvcBuilder();
-        mvcBuilder.apply(SecurityMockMvcConfigurers.springSecurity());
-        return mvcBuilder;
-    }
 }

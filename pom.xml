@@ -49,11 +49,11 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.vincemann.spring-rapid</groupId>
-            <artifactId>auth</artifactId>
-            <version>${spring-rapid.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.vincemann.spring-rapid</groupId>-->
+<!--            <artifactId>auth</artifactId>-->
+<!--            <version>${spring-rapid.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.github.vincemann.spring-rapid</groupId>
@@ -61,24 +61,24 @@
             <version>${spring-rapid.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.vincemann.spring-rapid</groupId>
-            <artifactId>auth-tests</artifactId>
-            <version>${spring-rapid.version}</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.vincemann.spring-rapid</groupId>-->
+<!--            <artifactId>auth-tests</artifactId>-->
+<!--            <version>${spring-rapid.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.github.vincemann.spring-rapid</groupId>
-            <artifactId>auto-bidir</artifactId>
-            <version>${spring-rapid.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.vincemann.spring-rapid</groupId>-->
+<!--            <artifactId>auto-bidir</artifactId>-->
+<!--            <version>${spring-rapid.version}</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.github.vincemann.spring-rapid</groupId>
-            <artifactId>acl</artifactId>
-            <version>${spring-rapid.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.vincemann.spring-rapid</groupId>-->
+<!--            <artifactId>acl</artifactId>-->
+<!--            <version>${spring-rapid.version}</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>

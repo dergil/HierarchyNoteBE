@@ -4,9 +4,6 @@ import com.example.hierarchy_notes.dto.CreateFileDto;
 import com.example.hierarchy_notes.dto.ReadFileDto;
 import com.example.hierarchy_notes.dto.UpdateFileDto;
 import com.github.vincemann.ezcompare.Comparator;
-import com.github.vincemann.springrapid.auth.dto.SignupDto;
-import com.github.vincemann.springrapid.auth.service.UserService;
-import com.github.vincemann.springrapid.authtest.controller.template.UserControllerTestTemplate;
 import com.github.vincemann.springrapid.coretest.util.TransactionalRapidTestUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -25,12 +22,6 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
 
     @Autowired
     TestData testData;
-
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    UserControllerTestTemplate userControllerTestTemplate;
 
 //    @Test
 //    void userCanCrudOwnFile() throws Exception {
@@ -155,25 +146,6 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
     @AfterEach
     void tearDown() {
         TransactionalRapidTestUtil.clear(getService());
-        TransactionalRapidTestUtil.clear(userService);
-    }
-
-    private String createUser1() throws Exception {
-        SignupDto signupDto = SignupDto.builder()
-                .email(testData.getTestUser1().getEmail())
-                .password(testData.getTestUser1().getPassword())
-                .build();
-        perform2xx(userControllerTestTemplate.signup(signupDto));
-        return userControllerTestTemplate.login2xx(signupDto.getEmail(), signupDto.getPassword());
-    }
-
-    private String createUser2() throws Exception {
-        SignupDto signupDto = SignupDto.builder()
-                .email(testData.getTestUser2().getEmail())
-                .password(testData.getTestUser2().getPassword())
-                .build();
-        perform2xx(userControllerTestTemplate.signup(signupDto));
-        return userControllerTestTemplate.login2xx(signupDto.getEmail(), signupDto.getPassword());
     }
 }
 

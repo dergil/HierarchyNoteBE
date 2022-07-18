@@ -10,18 +10,7 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.vincemann.springrapid.acl.proxy.*;
 
-@ServiceComponent
-@Primary
-@Transactional
-@DefineProxy(name = "acl", extensions = {
-        "authenticatedHasFullPermissionAboutSavedAclExtension"
-})
-//set to true for disabling anon features
-@DefineProxy(name = "secured", defaultExtensionsEnabled = false )
-@CreateProxy(qualifiers = Secured.class, proxies = {"acl","secured"})
-@CreateProxy(qualifiers = Acl.class, proxies = "acl")
 @Slf4j
 @Service
 public class JpaFileService

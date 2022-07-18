@@ -3,7 +3,7 @@ package com.example.hierarchy_notes;
 import com.example.hierarchy_notes.dto.CreateFileDto;
 import com.example.hierarchy_notes.dto.ReadFileDto;
 import com.example.hierarchy_notes.dto.UpdateFileDto;
-import com.github.vincemann.springrapid.acl.SecuredCrudController;
+import com.github.vincemann.springrapid.core.controller.CrudController;
 import com.github.vincemann.springrapid.core.controller.dto.mapper.context.CrudDtoMappingContextBuilder;
 import com.github.vincemann.springrapid.core.controller.dto.mapper.context.DtoMappingContext;
 import com.github.vincemann.springrapid.core.security.RapidSecurityContext;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class FileController extends SecuredCrudController<File, Long, FileService> {
+public class FileController extends CrudController<File, Long, FileService> {
 
     @Override
     protected DtoMappingContext provideDtoMappingContext(CrudDtoMappingContextBuilder builder) {
@@ -26,17 +26,17 @@ public class FileController extends SecuredCrudController<File, Long, FileServic
                 .build();
     }
 
-    @Autowired
-    private FileService fileService;
+//    @Autowired
+//    private FileService fileService;
 
-    @Override
-    protected File serviceCreate(File entity) throws BadEntityException {
-        if (RapidSecurityContext.isAuthenticated()){
-            return getService().save(entity);
-        }else {
-            // anon can create files
-            return fileService.save(entity);
-        }
-    }
+//    @Override
+//    protected File serviceCreate(File entity) throws BadEntityException {
+//        if (RapidSecurityContext.isAuthenticated()){
+//            return getService().save(entity);
+//        }else {
+//            // anon can create files
+//            return fileService.save(entity);
+//        }
+//    }
 
 }
