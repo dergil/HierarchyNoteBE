@@ -12,11 +12,13 @@ public class CreateFileDto extends IdentifiableEntityImpl<Long> {
     private String text;
     private String directory_name;
     private Boolean isDir;
+    private Boolean synced;
 
     public CreateFileDto(File file) {
         this.name = file.getName();
         this.text = file.getText();
         this.directory_name = file.getDirectory_name();
         this.isDir = file.getIsDir();
+        this.synced = file.getSynced();
     }
 }

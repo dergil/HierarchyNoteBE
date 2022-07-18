@@ -14,22 +14,20 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class FileController extends SecuredCrudController<File, Long, FileService> {
 
-    @Autowired
-    private FileService fileService;
-
     @Override
     protected DtoMappingContext provideDtoMappingContext(CrudDtoMappingContextBuilder builder) {
         return builder
                 .forEndpoint(getCreateUrl(), CreateFileDto.class)
                 .forUpdate(UpdateFileDto.class)
-
-
                 //response dto config
                 //not authenticated
                 .withAllPrincipals()
                 .forResponse(ReadFileDto.class)
                 .build();
     }
+
+    @Autowired
+    private FileService fileService;
 
     @Override
     protected File serviceCreate(File entity) throws BadEntityException {

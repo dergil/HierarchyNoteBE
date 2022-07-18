@@ -18,16 +18,6 @@ import javax.persistence.Table;
 @Table(name = "files")
 public class File extends IdentifiableEntityImpl<Long> {
 
-    @Builder
-    public File (Long id, String name, String text, String directory_name, Boolean isDir) {
-        this.setId(id);
-        this.name = name;
-        this.text = text;
-        this.directory_name = directory_name;
-        this.isDir = isDir;
-    }
-
-//    @javax.persistence.Id
     @Unique
     @Column(name = "names")
     private String name;
@@ -40,6 +30,23 @@ public class File extends IdentifiableEntityImpl<Long> {
 
     @Column(name = "isDir")
     private Boolean isDir;
+
+    @Column(name = "synced")
+    private Boolean synced;
+
+    @Builder
+    public File (Long id, String name, String text, String directory_name, Boolean isDir, Boolean synced) {
+        this.setId(id);
+        this.name = name;
+        this.text = text;
+        this.directory_name = directory_name;
+        this.isDir = isDir;
+        this.synced = synced;
+    }
+
+//    @javax.persistence.Id
+
+
 
 //    @Override
 //    public Long getId() {

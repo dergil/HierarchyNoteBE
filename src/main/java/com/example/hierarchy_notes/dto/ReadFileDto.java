@@ -12,4 +12,5 @@ public class ReadFileDto extends IdentifiableEntityImpl<Long> {
     private String text;
     private String directory_name;
     private Boolean isDir;
+    private Boolean synced;
 }
