@@ -1,0 +1,47 @@
+
+rapid-auth:
+# ADMIN users
+  admins:
+    - email: admin@example.com
+      password: AdminPassword123!
+    - email: secondAdmin@example.com
+      password: SecondAdminPassword123!
+
+  # Properties to be passed to client
+  shared:
+    fooBar: 123...
+
+    # application-url: http://localhost:9000
+    # oauth2-authentication-success-url: http://localhost:9000/social-login-success?token=
+
+  cors:
+    # Comma separated values of CORS allowedOrigins
+    # If this property is not given, CORS is not configured
+    allowed-origins: http://localhost:9000
+
+
+  jwt:
+    # An aes-128-cbc key generated at https://asecuritysite.com/encryption/keygen (take the "key" field)
+    secret: BFDDA8C8946977E95B8F6B2FFD5DE2DD
+    expiration-millis: 864000000 # 10 days
+  #  short-lived-millis: 120000   # two minutes
+
+  # JSON serialization settings
+  jackson:
+    default-property-inclusion: NON_NULL
+
+    serialization:
+      write-null-map-values: false
+
+    deserialization:
+      accept-single-value-as-array: true
+
+  # https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1-Release-Notes#bean-overriding
+  main.allow-bean-definition-overriding: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true

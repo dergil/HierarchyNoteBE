@@ -1,0 +1,10 @@
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/JpaFileService.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/File.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/dto/CreateFileDto.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/dto/UpdateFileDto.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/FileService.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/NeedToBeAuthenticatedForSaveExtension.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/dto/ReadFileDto.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/HierarchyNotesApplication.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/FileController.java
+/home/archdoc/Projekte/spring_rapid_with_projects/hierarchy_notes/src/main/java/com/example/hierarchy_notes/FileRepository.java
