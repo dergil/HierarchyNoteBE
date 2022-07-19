@@ -23,34 +23,21 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
     @Autowired
     TestData testData;
 
-//    @Test
-//    void userCanCrudOwnFile() throws Exception {
-//        String token = createUser1();
-//        // create file
-//        CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
-//        performDs2xx(create(createFileDto).header(HttpHeaders.AUTHORIZATION, token),ReadFileDto.class);
-//
-//        //crud file to showcase permissions
-//        perform2xx(find(createFileDto.getId()).header(HttpHeaders.AUTHORIZATION, token));
-//        perform2xx(delete(createFileDto.getId()).header(HttpHeaders.AUTHORIZATION, token));
-//    }
-
-
     @Test
-    void fileCanBeCreatedWithoutAuthentication() throws Exception {
+    void fileCanBeCreated() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
         perform2xx(create(createFileDto));
     }
 
     @Test
-    void fileCanBeDeletedWithoutAuthentication() throws Exception {
+    void fileCanBeDeleted() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
         ReadFileDto response = performDs2xx(create(createFileDto), ReadFileDto.class);
         perform2xx(delete(response.getId()));
     }
 
     @Test
-    void fileCanBeCUpdatedWithoutAuthentication() throws Exception {
+    void fileCanBeCUpdated() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
         ReadFileDto response = performDs2xx(create(createFileDto), ReadFileDto.class);
         String jsonRequest = TransactionalRapidTestUtil.createUpdateJsonRequest(
@@ -60,7 +47,7 @@ public class FileControllerIntegrationTest extends HierarchyNotesControllerTest<
     }
 
     @Test
-    void filesCanBeReadWithoutAuth() throws Exception {
+    void filesCanBeRead() throws Exception {
         CreateFileDto createFileDto = new CreateFileDto(testData.getFile1());
         ReadFileDto response = performDs2xx(create(createFileDto), ReadFileDto.class);
         ReadFileDto readFileDto = performDs2xx(find(response.getId()), ReadFileDto.class);
